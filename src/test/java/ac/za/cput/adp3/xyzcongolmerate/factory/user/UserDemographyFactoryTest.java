@@ -1,23 +1,33 @@
 package ac.za.cput.adp3.xyzcongolmerate.factory.user;
 
+import ac.za.cput.adp3.xyzcongolmerate.domain.user.UserDemography;
+import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import static org.junit.Assert.*;
 
 public class UserDemographyFactoryTest {
 
-    //TODO: implement method body ONLY!
+    UserDemography userDemography;
+
+    @Before
+    public void setUp() throws Exception
+    {
+        userDemography = UserDemographyFactory.buildUserDemography( "Kay@gmail.com", "Manager", "GF-12222", "RF-1111", new Date());
+    }
+
     @Test
     public void buildUserDemography() {
-        throw new UnsupportedOperationException("Not supported yet.");
-        /**
-         * Your implementation goes here
-         *
-         * INSTRUCTION
-         * 1. Remove line [//TODO: implement method body ONLY!]
-         * 2. Remove line [throw new UnsupportedOperationException("Not yet supported.");]
-         * 3. Test the UserDemographyFactory class
-         * 4. Assert that the an object is created.
-         */
+
+        Assert.assertEquals("Kay@gmail.com", userDemography.getUserEmail());
+        Assert.assertEquals("Manager", userDemography.getUserTitle());
+        Assert.assertEquals("GF-12222", userDemography.getGenderId());
+        Assert.assertEquals("RF-1111", userDemography.getRaceId());
+        Assert.assertEquals(new Date(), userDemography.getDateOfBirth());
+        System.out.println(userDemography);
     }
 }

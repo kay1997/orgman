@@ -2,6 +2,7 @@ package ac.za.cput.adp3.xyzcongolmerate.util;
 
 import java.util.UUID;
 
+
 public class Helper {
 
     public static String generateRandomGivenSuffix(String suffix) {
@@ -14,13 +15,17 @@ public class Helper {
 
     public static String getSuffixFromClassName(Class<?> aClass) {
         String className = getClassName(aClass);
-        throw new UnsupportedOperationException("Not yet supported!");
-        /**
-         * Your implementation goes here
-         *
-         * INSTRUCTION
-         * 1. Remove line 17 [throw new UnsupportedOperationException("Not yet supported!");]
-         * 2. Get the capitalized letter(s) from the className and return it.
-         */
+        String uppercaseCharacters = "";
+
+        for(int a = 0; a < className.length(); a++)
+        {
+            if(Character.isUpperCase(className.charAt(a)))
+            {
+                char character = className.charAt(a);
+                uppercaseCharacters = uppercaseCharacters + character;
+            }
+        }
+        return uppercaseCharacters;
+
     }
 }
